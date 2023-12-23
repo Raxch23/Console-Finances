@@ -90,12 +90,21 @@ var finances = [
 let numberOfMonths = finances.length
 let netTotal = 0
 let changes = []
+let greatestIncrease = ['',0]
+let greatestDecrease = ['',0]
 
 for (const key in finances) {
   netTotal = netTotal + finances[key][1]
   if(finances[Number(key) - 1]) {
     change = finances[key][1] - finances[Number(key) - 1][1]
     let changeIndex = changes.push([finances[key][0], change]) - 1
+    if(change > greatestIncrease[1]) {
+      greatestIncrease = [finances[key][0], change]
+    }
+  
+    if(change < greatestDecrease[1]) {
+      greatestDecrease = [finances[key][0], change]
+    } 
   }
 }
 
@@ -107,4 +116,5 @@ for (const key in changes) {
 
 let averageChanges = totalChange / (numberOfMonths - 1)
 
-console.log(averageChanges)
+console.log(greatestIncrease)
+console.log(greatestDecrease)
