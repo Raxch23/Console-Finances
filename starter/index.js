@@ -88,3 +88,10 @@ var finances = [
 ];
 
 let numberOfMonths = finances.length
+let netTotal = 0
+
+for (const key in finances) {
+  netTotal = netTotal + finances[key][1]
+}
+
+console.log(netTotal)
