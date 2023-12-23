@@ -116,5 +116,11 @@ for (const key in changes) {
 
 let averageChanges = totalChange / (numberOfMonths - 1)
 
-console.log(greatestIncrease)
-console.log(greatestDecrease)
+let output = 'Financial Analysis\n'
+output += '----------------\n'
+output += 'Total Months: ' + numberOfMonths + '\n'
+output += 'Total: $' + netTotal + '\n'
+output += 'Average Change: ' + averageChanges.toFixed(2) + '\n'
+output += 'Greatest Increase in Profits/Losses: '+greatestIncrease[0]+' ($'+greatestIncrease[1]+')\n'
+output += 'Greatest Decrease in Profits/Losses: '+greatestDecrease[0]+' ($'+greatestDecrease[1]+')\n'
+console.log(output)
