@@ -89,9 +89,22 @@ var finances = [
 
 let numberOfMonths = finances.length
 let netTotal = 0
+let changes = []
 
 for (const key in finances) {
   netTotal = netTotal + finances[key][1]
+  if(finances[Number(key) - 1]) {
+    change = finances[key][1] - finances[Number(key) - 1][1]
+    let changeIndex = changes.push([finances[key][0], change]) - 1
+  }
 }
 
-console.log(netTotal)
+let totalChange = 0
+
+for (const key in changes) {
+  totalChange = totalChange + changes[key][1]
+}
+
+let averageChanges = totalChange / (numberOfMonths - 1)
+
+console.log(averageChanges)
